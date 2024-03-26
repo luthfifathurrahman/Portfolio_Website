@@ -54,10 +54,14 @@ with col_profile:
 
 # --- SOCIAL LINKS ---
 st.markdown("<br>", unsafe_allow_html=True)
+# cols = st.columns(len(SOCIAL_MEDIA))
+# for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
+#     if col.button(platform):
+#         webbrowser.open_new_tab(link)
+
 cols = st.columns(len(SOCIAL_MEDIA))
-for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
-    if col.button(platform):
-        webbrowser.open_new_tab(link)
+for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
+    cols[index].write(f"[{platform}]({link})")
 
 # --- SKILLS ---
 st.markdown("<br>", unsafe_allow_html=True)
