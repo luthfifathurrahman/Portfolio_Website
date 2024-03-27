@@ -151,7 +151,7 @@ with colA2:
     st.markdown("""
         <div>
             <p style="text-align: justify; hyphens: auto; font-size: 15px;">
-                A fall detection system incorporating accelerometer and gyroscope sensors, augmented by adaptive neuro fuzzy inference system (ANFIS), achieves 100% sensitivity and specificity, distinguishing falls from daily activities. Data collected via Arduino, processed in Excel, validated, and further automated using MATLAB to enhance device reliability. Validation conducted with Arduino ensures system accuracy.
+                A fall detection system incorporating accelerometer and gyroscope sensors, augmented by adaptive neuro fuzzy inference system (ANFIS). Data collected via Arduino, processed in Excel, validated, and further automated using MATLAB to enhance device reliability. Validation conducted with Arduino ensures system accuracy.
             </p>
         </div>
         """,
