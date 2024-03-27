@@ -1,7 +1,8 @@
 from pathlib import Path
 import streamlit as st
 from PIL import Image
-import webbrowser
+import requests
+from streamlit_lottie import st_lottie
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -20,13 +21,25 @@ EMAIL = "luthfifathurrahman22@gmail.com"
 SOCIAL_MEDIA = {
     "LinkedIn": "https://www.linkedin.com/in/luthfi-fathurrahman/",
     "GitHub" : "https://github.com/luthfifathurrahman",
-    "Medium": "https://luthfifathurrahman.medium.com/"
+    "Medium": "https://luthfifathurrahman.medium.com/",
+    "Email": "mailto:luthfifathurrahman22@gmail.com"
 }
+LOTTIE_HOUSE = "https://lottie.host/72c1c5d5-b5eb-449c-a168-5e2d9f4fd842/PNw7ogM9dI.json"
+LOTTIE_AIRBNB = "https://lottie.host/89a84c80-9cb4-4ef3-865a-9d71b49cfc05/wp5MrvNGws.json"
+
 
 st.set_page_config(
     page_title="Portfolio | Luthfi Fathurrahman",
     page_icon="🗂️"
 )
+
+
+# --- LOTTIE ---
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
 
 # --- LOAD CSS, PDF, & PROFILE PIC ---
 with open(css_file) as f:
@@ -43,67 +56,94 @@ with col_photo:
     st.image(profile_pic, width=230)
 
 with col_profile:
-    st.markdown("<h1 style='font-size: 48px;'>{}</h1>".format(NAME), unsafe_allow_html=True)
+    st.markdown("<h1 style='font-size: 40px;'>{}</h1>".format(NAME), unsafe_allow_html=True)
+    st.write(DESCRIPTION)
     st.download_button(
         label=" 📃 Download Resume",
         data=PDFbyte,
         file_name=resume_file.name,
         mime="application/octet-stream"
     )
-    st.write("📧", EMAIL)
 
 # --- SOCIAL LINKS ---
 st.markdown("<br>", unsafe_allow_html=True)
-# cols = st.columns(len(SOCIAL_MEDIA))
-# for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
-#     if col.button(platform):
-#         webbrowser.open_new_tab(link)
-
 cols = st.columns(len(SOCIAL_MEDIA))
-for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
-    cols[index].write(f"[{platform}]({link})")
-
-# --- SKILLS ---
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: left; font-size: 36px;'>Hard Skills</h2>", unsafe_allow_html=True)
-st.write("---")
-st.markdown("""
-<div>
-    <ol>
-        <li  style="text-align: justify; font-size: 18px;">Programming Language: Python (Pandas, Numpy, Selenium, Streamlit, Scikit-learn), SQL</li>
-        <li  style="text-align: justify; font-size: 18px;">Data Visulization: PowerBi, Microsoft Excel, Python (Altair, Matplotlib, Seaborn)</li>
-        <li  style="text-align: justify; font-size: 18px;">Modeling: Supervised Learning (Regressor, Classification), Unsupervised Learning (Clustering)</li>
-        <li  style="text-align: justify; font-size: 18px;">Databases: MySQL</li>
-    </ol>
-</div>
-""", unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-
-# --- WORK HISTORY ---
-st.write('\n')
-st.markdown("<h2 style='text-align: left; font-size: 36px;'>Work Experience</h2>", unsafe_allow_html=True)
-st.write("---")
-
-# --- JOB 1
-st.markdown("<font size='5'>**PT. ORISOL INDONESIA MACHINERY | Field Application Engineer | Team Leader**</font>", unsafe_allow_html=True)
-st.markdown("<font size='4'>**Salatiga, Central Java, Indonesia**</font>", unsafe_allow_html=True)
-st.markdown("<font size='4'>**06/2022 - 07/2023**</font>", unsafe_allow_html=True)
-st.markdown("""
-<div>
-    <li  style="text-align: justify; font-size: 18px;">Conducted machine installations, inspections, and maintenance, as well as repairs.</li>
-    <li  style="text-align: justify; font-size: 18px;">Served as a team leader for the Central Java Province, overseeing and coordinating the team's activities.</li>
-    <li  style="text-align: justify; font-size: 18px;">Maintained positive relationships with customers, ensuring high levels of customer satisfaction.</li>
-    <li  style="text-align: justify; font-size: 18px;">Provided regular updates to customers regarding machine-related information.</li>
-    <li  style="text-align: justify; font-size: 18px;">Submitted detailed reports to the headquarters in Taiwan, keeping them informed about on-site activities and developments.</li>
-</div>
-""", unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
+for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
+    col.link_button(
+        label=platform,
+        url=link,
+        use_container_width=True
+    )   
 
 # --- Projects & Accomplishments ---
-st.write('\n')
-st.subheader("Projects & Accomplishments")
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; font-size: 36px;'>Projects</h2>", unsafe_allow_html=True)
 st.write("---")
+colA1, colA2 = st.columns(2, gap="small")
+with colA1:
+    st_lottie(load_lottieurl(LOTTIE_HOUSE))
+with colA2:
+    st.markdown("<h3 style='text-align: left; font-size: 22px;'>Evaluating the 35-Year Mortgage Policy in Indonesia</h3>", unsafe_allow_html=True)
+    st.markdown("""
+        <div>
+            <p style="text-align: justify; hyphens: auto; font-size: 15px;">
+                Assessing the impact of Indonesia's 35-year mortgage policy on homeownership amidst a 11.84 million household housing backlog. Evaluating extending KPR tenor to 35 years, considering regional, demographic, and societal factors. Offering recommendations for balanced housing policies.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )   
+    colA21, colA22 =  st.columns(2, gap="small")
+    with colA21:
+        st.link_button(
+            label="GitHub Repo",
+            url="https://github.com/luthfifathurrahman/The-35-Year-Mortgage-Policy-In-Indonesia",
+            use_container_width=True
+        )
+    with colA22:
+        st.link_button(
+            label="Report",
+            url="https://the-35-year-mortgage-policy-in-indonesia-luthfifathurrahman.streamlit.app/",
+            use_container_width=True
+        ) 
+      
 
+st.write("---")
+colA1, colA2 = st.columns(2, gap="small")
+with colA1:
+    st_lottie(load_lottieurl(LOTTIE_AIRBNB))
+with colA2:
+    st.markdown("<h3 style='text-align: left; font-size: 22px;'>Airbnb Singapore</h3>", unsafe_allow_html=True)
+    st.markdown("""
+        <div>
+            <p style="text-align: justify; hyphens: auto; font-size: 15px;">
+                Maximize Airbnb profits: Evaluate competitors and properties in each area. Analyze customer behavior for effective pricing and marketing strategies. Tailor offerings to stand out and optimize revenue.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )   
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+    colA21, colA22 =  st.columns(2, gap="small")
+    with colA21:
+        st.link_button(
+            label="GitHub Repo",
+            url="https://github.com/luthfifathurrahman/The-35-Year-Mortgage-Policy-In-Indonesia",
+            use_container_width=True
+        )
+    # with colA22:
+    #     st.link_button(
+    #         label="Report",
+    #         url="https://the-35-year-mortgage-policy-in-indonesia-luthfifathurrahman.streamlit.app/",
+    #         use_container_width=True
+    #     ) 
+
+
+      
 
 
 
