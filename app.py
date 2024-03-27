@@ -26,7 +26,7 @@ SOCIAL_MEDIA = {
 }
 LOTTIE_HOUSE = "https://lottie.host/72c1c5d5-b5eb-449c-a168-5e2d9f4fd842/PNw7ogM9dI.json"
 LOTTIE_AIRBNB = "https://lottie.host/89a84c80-9cb4-4ef3-865a-9d71b49cfc05/wp5MrvNGws.json"
-
+LOTTIE_LIFEPLUS = "https://lottie.host/1362c96a-68bb-4e97-99ee-6d06c7688d50/3OYoCc33QN.json"
 
 st.set_page_config(
     page_title="Portfolio | Luthfi Fathurrahman",
@@ -123,16 +123,16 @@ with colA2:
         """,
         unsafe_allow_html=True
     )   
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
+    # st.write("")
+    # st.write("")
+    # st.write("")
+    # st.write("")
+    # st.write("")
     colA21, colA22 =  st.columns(2, gap="small")
     with colA21:
         st.link_button(
             label="GitHub Repo",
-            url="https://github.com/luthfifathurrahman/The-35-Year-Mortgage-Policy-In-Indonesia",
+            url="https://github.com/luthfifathurrahman/Airbnb-Singapore",
             use_container_width=True
         )
     # with colA22:
@@ -142,7 +142,28 @@ with colA2:
     #         use_container_width=True
     #     ) 
 
-
+st.write("---")
+colA1, colA2 = st.columns(2, gap="small")
+with colA1:
+    st_lottie(load_lottieurl(LOTTIE_LIFEPLUS))
+with colA2:
+    st.markdown("<h3 style='text-align: left; font-size: 22px;'>LifePlus</h3>", unsafe_allow_html=True)
+    st.markdown("""
+        <div>
+            <p style="text-align: justify; hyphens: auto; font-size: 15px;">
+                A fall detection system incorporating accelerometer and gyroscope sensors, augmented by adaptive neuro fuzzy inference system (ANFIS), achieves 100% sensitivity and specificity, distinguishing falls from daily activities. Data collected via Arduino, processed in Excel, validated, and further automated using MATLAB to enhance device reliability. Validation conducted with Arduino ensures system accuracy.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    colA21, colA22 =  st.columns(2, gap="small")
+    with colA21:
+        st.link_button(
+            label="See Details",
+            url="https://repository.its.ac.id/50802/",
+            use_container_width=True
+        ) 
       
 
 
