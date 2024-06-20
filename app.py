@@ -149,7 +149,7 @@ colA1, colA2 = st.columns(2, gap="small")
 with colA1:
     st_lottie(load_lottieurl(LOTTIE_TELCO))
 with colA2:
-    st.markdown("<h3 style='text-align: left; font-size: 22px;'>Airbnb Singapore</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; font-size: 22px;'>Telco Customer Churn</h3>", unsafe_allow_html=True)
     st.markdown("""
         <div>
             <p style="text-align: justify; hyphens: auto; font-size: 15px;">
