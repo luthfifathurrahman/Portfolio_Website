@@ -7,7 +7,7 @@ from streamlit_lottie import st_lottie
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
-resume_file = current_dir / "assets" / "Resume - Luthfi Fathurrahman.pdf"
+cv_file = current_dir / "assets" / "Curriculum Vitae - Luthfi Fathurrahman.pdf"
 profile_pic = current_dir / "assets" / "Photo - Luthfi Fathurrahman.png"
 
 # --- GENERAL SETTINGS ---
@@ -46,7 +46,7 @@ def load_lottieurl(url):
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
-with open(resume_file, "rb") as pdf_file:
+with open(cv_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
 
 profile_pic = Image.open(profile_pic)
@@ -62,7 +62,7 @@ with col_profile:
     st.download_button(
         label=" 📃 Download Curriculum Vitae",
         data=PDFbyte,
-        file_name=resume_file.name,
+        file_name=cv_file.name,
         mime="application/octet-stream"
     )
 
