@@ -27,6 +27,7 @@ SOCIAL_MEDIA = {
 LOTTIE_HOUSE = "https://lottie.host/72c1c5d5-b5eb-449c-a168-5e2d9f4fd842/PNw7ogM9dI.json"
 LOTTIE_AIRBNB = "https://lottie.host/89a84c80-9cb4-4ef3-865a-9d71b49cfc05/wp5MrvNGws.json"
 LOTTIE_LIFEPLUS = "https://lottie.host/1362c96a-68bb-4e97-99ee-6d06c7688d50/3OYoCc33QN.json"
+LOTTIE_TELCO = "https://lottie.host/95428c9c-6386-472f-b5d5-00d03a902488/XiGQ4s3Oqm.json"
 
 st.set_page_config(
     page_title="Portfolio | Luthfi Fathurrahman",
@@ -141,6 +142,42 @@ with colA2:
     #         url="https://the-35-year-mortgage-policy-in-indonesia-luthfifathurrahman.streamlit.app/",
     #         use_container_width=True
     #     ) 
+
+
+st.write("---")
+colA1, colA2 = st.columns(2, gap="small")
+with colA1:
+    st_lottie(load_lottieurl(LOTTIE_TELCO))
+with colA2:
+    st.markdown("<h3 style='text-align: left; font-size: 22px;'>Airbnb Singapore</h3>", unsafe_allow_html=True)
+    st.markdown("""
+        <div>
+            <p style="text-align: justify; hyphens: auto; font-size: 15px;">
+                This project focuses on analyzing customer churn based on factors like gender, seniority, partnership, tenure, services, and billing preferences to inform retention strategies.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )   
+    # st.write("")
+    # st.write("")
+    # st.write("")
+    # st.write("")
+    # st.write("")
+    colA21, colA22 =  st.columns(2, gap="small")
+    with colA21:
+        st.link_button(
+            label="GitHub Repo",
+            url="https://github.com/luthfifathurrahman/Telco-Customer-Churn-Potfolio-Project",
+            use_container_width=True
+        )
+    # with colA22:
+    #     st.link_button(
+    #         label="Report",
+    #         url="https://the-35-year-mortgage-policy-in-indonesia-luthfifathurrahman.streamlit.app/",
+    #         use_container_width=True
+    #     ) 
+
 
 st.write("---")
 colA1, colA2 = st.columns(2, gap="small")
