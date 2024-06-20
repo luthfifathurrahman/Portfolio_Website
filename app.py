@@ -60,7 +60,7 @@ with col_profile:
     st.markdown("<h1 style='font-size: 40px;'>{}</h1>".format(NAME), unsafe_allow_html=True)
     st.write(DESCRIPTION)
     st.download_button(
-        label=" 📃 Download Resume",
+        label=" 📃 Download Curriculum Vitae",
         data=PDFbyte,
         file_name=resume_file.name,
         mime="application/octet-stream"
