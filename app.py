@@ -29,6 +29,7 @@ LOTTIE_AIRBNB = "https://lottie.host/89a84c80-9cb4-4ef3-865a-9d71b49cfc05/wp5Mrv
 LOTTIE_LIFEPLUS = "https://lottie.host/1362c96a-68bb-4e97-99ee-6d06c7688d50/3OYoCc33QN.json"
 LOTTIE_TELCO = "https://lottie.host/95428c9c-6386-472f-b5d5-00d03a902488/XiGQ4s3Oqm.json"
 LOTTIE_STUDENT = "https://lottie.host/6c64ef97-4472-45ae-9271-fb8ea1b3c5b3/As9rM43P0r.json"
+LOTTIE_CAR = "https://lottie.host/ecbd3f6d-81d7-4f1b-804d-7323967d10a5/qGIjbPjfhr.json"
 
 st.set_page_config(
     page_title="Portfolio | Luthfi Fathurrahman",
@@ -205,6 +206,41 @@ with colA2:
         st.link_button(
             label="GitHub Repo",
             url="https://github.com/luthfifathurrahman/Student-Performance-in-The-Exams-Portfolio-Project",
+            use_container_width=True
+        )
+    # with colA22:
+    #     st.link_button(
+    #         label="Report",
+    #         url="https://the-35-year-mortgage-policy-in-indonesia-luthfifathurrahman.streamlit.app/",
+    #         use_container_width=True
+    #     ) 
+
+
+st.write("---")
+colA1, colA2 = st.columns(2, gap="small")
+with colA1:
+    st_lottie(load_lottieurl(LOTTIE_CAR))
+with colA2:
+    st.markdown("<h3 style='text-align: left; font-size: 22px;'>Car Data Insights</h3>", unsafe_allow_html=True)
+    st.markdown("""
+        <div>
+            <p style="text-align: justify; hyphens: auto; font-size: 15px;">
+                Car Data Insights Project analyzes a comprehensive dataset encompassing various automotive metrics. It explores car brands, models, years of release, engine types, transmission modes, drivetrain configurations, and fuel efficiencies. 
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )   
+    # st.write("")
+    # st.write("")
+    # st.write("")
+    # st.write("")
+    # st.write("")
+    colA21, colA22 =  st.columns(2, gap="small")
+    with colA21:
+        st.link_button(
+            label="GitHub Repo",
+            url="https://github.com/luthfifathurrahman/Car-Price-Portfolio-Project",
             use_container_width=True
         )
     # with colA22:
